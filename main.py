@@ -11,6 +11,7 @@ MONTHS_PER_YEAR = 9
 CLASS_DAYS_PER_SEMESTER = 75
 CS1430_CREDITS = 3
 CS1430_MEETINGS_PER_SEMESTER = 45
+MINUTES_PER_CLASS = 50
 
 
 # ---- FUNCTIONS: replace each return 0 ----
@@ -40,6 +41,9 @@ def cost_per_class(annual_cost, credits):
     return cost_per_credit(annual_cost, credits) * CS1430_CREDITS / CS1430_MEETINGS_PER_SEMESTER
 
 
+def cost_per_minute(annual_cost, credits):
+    """Give back what one minute of a CS 1430 class costs."""
+    return cost_per_class(annual_cost, credits) / MINUTES_PER_CLASS
 # ---- PROGRAM ----
 
 def main():
@@ -55,6 +59,7 @@ def main():
         print("3. Cost per day")
         print("4. Cost per credit")
         print("5. Cost per class")
+        print("6. Cost per minute")
         print("Q. Quit")
 
         choice = input("Choose an option: ")
@@ -72,6 +77,8 @@ def main():
             print(f"Cost per credit: ${cost_per_credit(annual_cost, credits):.2f}")
         elif choice == "5":
             print(f"Cost per class: ${cost_per_class(annual_cost, credits):.2f}")
+        elif choice == "6":
+            print(f"Cost per minute: ${cost_per_minute(annual_cost, credits):.2f}")
 
 # ---- LAUNCH: do not change ----
 if __name__ == "__main__":
