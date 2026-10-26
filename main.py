@@ -51,6 +51,7 @@ def main():
     # Then ask for the credits this semester.
     annual_cost = float(input("Enter the total cost for one year: "))
     credits = int(input("Enter the number of credits for this semester: "))
+    minutes_late = int(input("Enter the number of minutes late: "))
 
     while True:
         print("\nMenu:")
@@ -60,6 +61,7 @@ def main():
         print("4. Cost per credit")
         print("5. Cost per class")
         print("6. Cost per minute")
+        print("7. Cost for being late in total")
         print("Q. Quit")
 
         choice = input("Choose an option: ")
@@ -79,7 +81,9 @@ def main():
             print(f"Cost per class: ${cost_per_class(annual_cost, credits):.2f}")
         elif choice == "6":
             print(f"Cost per minute: ${cost_per_minute(annual_cost, credits):.2f}")
-
+        elif choice == "7":
+            total_cost = cost_per_minute(annual_cost, credits) * minutes_late
+            print(f"Total cost for being {minutes_late} minutes late: ${total_cost:.2f}")
 # ---- LAUNCH: do not change ----
 if __name__ == "__main__":
     main()
